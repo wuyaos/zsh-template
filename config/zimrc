@@ -56,7 +56,6 @@ zmodule zsh-users/zsh-autosuggestions
 
 # custom
 zmodule akarzim/zsh-docker-aliases
-zmodule DarrinTisdale/zsh-aliases-exa
 zmodule ohmyzsh/ohmyzsh --root plugins/sudo
 zmodule wookayin/fzf-fasd
 zmodule zsh-users/zaw
@@ -68,4 +67,4 @@ zmodule supercrabtree/k
 zmodule hlissner/zsh-autopair
 zmodule pabloariasal/zfm
 zmodule agkozak/zsh-z
-zmodule Aloxaf/fzf-tab
+# zmodule Aloxaf/fzf-tab
