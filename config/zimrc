@@ -5,66 +5,68 @@
 #
 
 #
-# Modules
+# Official core modules
 #
 
-# Sets sane Zsh built-in environment options.
+# Baseline shell options and environment defaults.
 zmodule environment
-# Provides handy git aliases and functions.
+# Git aliases and helper functions.
 zmodule git
-# Applies correct bindkeys for input events.
+# Keybindings and input behavior integration.
 zmodule input
-# Sets a custom terminal title.
+# Terminal title updates based on context.
 zmodule termtitle
-# Utility aliases and functions. Adds colour to ls, grep and less.
+# Common utility aliases and safer defaults.
 zmodule utility
+
+#
+# Prompt modules
+#
+
+# Prompt theme engine.
 zmodule romkatv/powerlevel10k
-#
-# Prompt
-#
-
-# Exposes to prompts how long the last command took to execute, used by asciiship.
+# Exposes last command duration for prompt segments.
 zmodule duration-info
-# Exposes git repository status information to prompts, used by asciiship.
+# Exposes git status metadata for prompt segments.
 zmodule git-info
-# A heavily reduced, ASCII-only version of the Spaceship and Starship prompts.
-zmodule asciiship
+# Exposes current directory info for prompt segments.
+zmodule prompt-pwd
 
 #
-# Completion
+# Completion modules
 #
 
-# Additional completion definitions for Zsh.
+# Extra completion definitions from community.
 zmodule zsh-users/zsh-completions --fpath src
-# Enables and configures smart and extensive tab completion.
-# completion must be sourced after all modules that add completion definitions.
-# zmodule completion
+# Core Zsh completion system.
+zmodule completion
+
+#
+# Project local modules
+#
+
+# Local conda/micromamba compatibility aliases and prompt helpers.
+zmodule ${${(%):-%x}:A:h:h}/modules/conda \
+  --if '(( ${+commands[conda]} || ${+commands[micromamba]} || ${+commands[mamba]} ))'
+# Local numpad key sequence mappings for terminal application mode.
+zmodule ${${(%):-%x}:A:h:h}/modules/numpad
+
+#
+# Optional extra modules
+#
+
+# Fuzzy directory jump via fzf + fasd integration.
+zmodule wookayin/fzf-fasd --if '(( ${+commands[fzf]} && ${+commands[fasd]} ))'
+# zmodule Aloxaf/fzf-tab
 
 #
 # Modules that must be initialized last
 #
 
-# Fish-like syntax highlighting for Zsh.
-# zsh-users/zsh-syntax-highlighting must be sourced after completion
+# Syntax highlighting for typed commands.
 zmodule zsh-users/zsh-syntax-highlighting
-# Fish-like history search (up arrow) for Zsh.
-# zsh-users/zsh-history-substring-search must be sourced after zsh-users/zsh-syntax-highlighting
+# Up/down history search based on current command substring.
 zmodule zsh-users/zsh-history-substring-search
-# Fish-like autosuggestions for Zsh.
+# Fish-like inline command suggestions; keep last for stable widget bindings.
 zmodule zsh-users/zsh-autosuggestions
 # }}} End configuration added by Zim install
-
-# custom
-zmodule akarzim/zsh-docker-aliases
-zmodule ohmyzsh/ohmyzsh --root plugins/sudo
-zmodule wookayin/fzf-fasd
-zmodule zsh-users/zaw
-zmodule git-info
-zmodule prompt-pwd
-zmodule magicmace
-zmodule zdharma-continuum/fast-syntax-highlighting
-zmodule supercrabtree/k
-zmodule hlissner/zsh-autopair
-zmodule pabloariasal/zfm
-zmodule agkozak/zsh-z
-# zmodule Aloxaf/fzf-tab
