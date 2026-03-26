@@ -54,9 +54,10 @@ zmodule wuyaos/zsh-template --name zsh-template-numpad --root modules/numpad
 # Optional extra modules
 #
 
-# Fuzzy directory jump via fzf + fasd integration.
-zmodule wookayin/fzf-fasd --if '(( ${+commands[fzf]} && ${+commands[fasd]} ))'
-# zmodule Aloxaf/fzf-tab
+# Smarter directory jumping based on frecency (fasd-free).
+zmodule agkozak/zsh-z
+# Fuzzy completion UI for tab selection.
+zmodule Aloxaf/fzf-tab
 
 #
 # Modules that must be initialized last
