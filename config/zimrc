@@ -46,10 +46,10 @@ zmodule completion
 #
 
 # Conda/micromamba compatibility aliases and prompt helpers.
-zmodule wuyaos/zsh-template --name zsh-template-conda --root modules/conda \
-  --if '(( ${+commands[conda]} || ${+commands[micromamba]} || ${+commands[mamba]} ))'
+zmodule wuyaos/zsh-template --name zsh-template-conda --branch module-conda \
+    --if '(( ${+commands[conda]} || ${+commands[micromamba]} || ${+commands[mamba]} ))'
 # Numpad key sequence mappings for terminal application mode.
-zmodule wuyaos/zsh-template --name zsh-template-numpad --root modules/numpad
+zmodule wuyaos/zsh-template --name zsh-template-numpad --branch module-numpad
 #
 # Optional extra modules
 #
