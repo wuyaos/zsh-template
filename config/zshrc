@@ -138,9 +138,4 @@ unset key
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
-alias exa="eza"
-alias ll="eza -l"
-alias ls="eza"
-alias la="eza -la"
 alias updocker="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower -cR"
-
